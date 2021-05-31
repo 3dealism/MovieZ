@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+<span>
+      <button mat-icon-button>
+        <mat-icon (click)="onToggleSidenav()">menu</mat-icon>
+      </button>
+</span>
+    <div>
+      <a class="logo" (click)="sendText()" routerLink="/">MovieZ</a>
+    </div>
+    <span fxFlex=""></span>
+    <ul class="search-field">
+      <li>
+        <form>
+          <div class="search-wrapper">
+
+            <label>
+              <input type="search" class="round-search" name="searchText" placeholder="Search movie..."
+                     [(ngModel)]="searchText" (input)="sendText()">
+              <i class="fa fa-search search-icon" aria-hidden="true"></i>
+            </label>
+          </div>
+
+        </form>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>

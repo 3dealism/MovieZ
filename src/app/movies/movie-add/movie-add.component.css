@@ -1,0 +1,135 @@
+mat-card {
+  background-color: #272727;
+  width: 45%;
+  margin: 80px auto;
+}
+
+
+.form-header {
+  color: #E50914;
+  font-weight: 400;
+  font-size: larger;
+}
+
+mat-label, input, .img-upld-btn {
+  color: #c7c7c7;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #adadad !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #adadad !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #E50914 !important;;
+}
+
+
+.add-form {
+  background-color: #272727;
+}
+
+.input-text-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.input-text-full-width {
+  width: 100%;
+}
+
+.space-2-head {
+  margin-top: 25px;
+}
+
+mat-progress-bar {
+  margin: auto;
+}
+
+input[type='file'] {
+  visibility: hidden
+}
+
+.poster-preview {
+  height: 240px;
+  width: 30%;
+  margin: 10px auto;
+}
+
+.poster-preview img {
+  height: 100%;
+}
+
+.mat-option-color {
+  background: #333333;
+  color: #cdcdcd;
+}
+
+::ng-deep .mat-select-value {
+  color: #cdcdcd !important;
+}
+
+.mat-option-color:hover {
+  overflow-x: hidden;
+  background: #4d4d4d;
+  color: #E50914;
+}
+
+::ng-deep .mat-select-arrow {
+  width: auto;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin: 0 4px;
+  color: #E50914;
+}
+
+.img-upld-btn {
+  background-color: #2c2c2c;
+  height: 100%;
+  width: auto;
+}
+
+.img-upld-btn:hover {
+  background-color: #595959;
+}
+
+.mat-stroked-button {
+  margin-left: 10px;
+  border: 1px solid #E50914;
+  border-radius: 0;
+}
+
+.add-btn-div {
+  margin: 5px auto;
+  width: 30%;
+}
+
+.mat-raised-button {
+  background-color: #E50914;
+  border-radius: 0;
+  flex: 1 auto;
+  text-align: center;
+  transition: all 0.35s ease-out;
+}
+
+.luxury .mat-raised-button {
+  background-color: #E50914;
+  background-position: 1% 50%;
+  background-size: 300% 300%;
+  color: #dddddd;
+  font-size: larger;
+  background-image: linear-gradient(45deg, transparent 0%, transparent 75%, rgba(255, 255, 255, 0.8) 75%, transparent 100%);
+}
+
+.luxury .mat-raised-button:hover {
+  background-position: 150% top;
+}

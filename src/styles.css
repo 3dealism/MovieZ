@@ -1,0 +1,95 @@
+/* GLOBAL STYLES */
+
+::-webkit-scrollbar {
+  width: 0;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #2b2b2b;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #E50914;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 7px solid #2b2b2b;  /* creates padding around scroll thumb */
+}
+html, body {
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+  line-height: 1.15;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #aaa;
+  text-align: left;
+}
+
+hr{
+  opacity: 7%;
+  width: 100%;
+}
+
+.popup .mat-dialog-content{
+  padding: 0;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  max-height: inherit !important;
+  overflow-x: hidden;
+}
+
+.main::-webkit-scrollbar {
+  width: 0 !important
+}
+
+.main {
+  overflow: -moz-scrollbars-none;
+}
+
+.main {
+  -ms-overflow-style: none;
+}
+
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #ee5f5b;
+  --orange: #fd7e14;
+  --yellow: #f89406;
+  --green: #62c462;
+  --teal: #20c997;
+  --cyan: #5bc0de;
+  --white: #fff;
+  --gray: #7a8288;
+  --gray-dark: #3a3f44;
+  --primary: #3a3f44;
+  --secondary: #7a8288;
+  --success: #62c462;
+  --info: #5bc0de;
+  --warning: #f89406;
+  --danger: #ee5f5b;
+  --light: #e9ecef;
+  --dark: #272b30;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+

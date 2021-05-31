@@ -1,0 +1,69 @@
+<app-header (sideNavToggle)="sidenav.toggle()"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" fixedInViewport>
+    <mat-nav-list>
+      <h2 matSubheader>User</h2>
+      <a *ngIf="!userIsAuthenticated" mat-list-item (click)="sidenav.close()" routerLink="/login">Login
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+      </a>
+      <a *ngIf="!userIsAuthenticated" mat-list-item (click)="sidenav.close()" routerLink="/signup">Sign Up
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+      </a>
+      <a *ngIf="userIsAuthenticated" mat-list-item (click)="Logout(); sidenav.close()">Log Out
+        <mat-icon mat-list-icon>account_circle</mat-icon>
+      </a>
+      <h2 matSubheader>Movies</h2>
+      <a mat-list-item (click)="sendGenre(''); sidenav.close()" routerLink="/">Home
+        <mat-icon mat-list-icon>home</mat-icon>
+      </a>
+      <a mat-list-item (click)="sidenav.close()" routerLink="/add">Add movie
+        <mat-icon mat-list-icon>add</mat-icon>
+      </a>
+
+      <h2 matSubheader>Genre</h2>
+      <a mat-list-item class="opaque-title" (click)="sendGenre(''); sidenav.close()" routerLink="/">All
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Action'); sidenav.close()" routerLink="/">Action
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Animation'); sidenav.close()" routerLink="/">Animation
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Comedy'); sidenav.close()" routerLink="/">Comedy
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Science-Fiction'); sidenav.close()" routerLink="/">Science-Fiction
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Fantasy'); sidenav.close()" routerLink="/">Fantasy
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Horror'); sidenav.close()" routerLink="/">Horror
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Documentary'); sidenav.close()" routerLink="/">Documentary
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Drama'); sidenav.close()" routerLink="/">Drama
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Romance'); sidenav.close()" routerLink="/">Romance
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Thriller'); sidenav.close()" routerLink="/">Thriller
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+      <a mat-list-item class="opaque-title" (click)="sendGenre('Adult'); sidenav.close()" routerLink="/">Adult
+        <mat-icon mat-list-icon class="opaque-icon">local_movies</mat-icon>
+      </a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

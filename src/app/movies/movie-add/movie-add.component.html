@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-progress-bar *ngIf="isLoading" color="warn" mode="indeterminate"></mat-progress-bar>
+  <form [formGroup]="form" class="add-form" (submit)="onSaveMovie()" *ngIf="!isLoading">
+    <mat-label class="form-header">Please fill in the movie details to add the movie</mat-label>
+    <mat-form-field class="input-text-full-width space-2-head">
+      <mat-label>Movie title</mat-label>
+      <label>
+        <input matInput class="input-text-full-width"
+               type="text"
+               placeholder="Title"
+               formControlName="title"
+        />
+      </label>
+      <mat-error *ngIf="form.get('title')?.invalid">Please type in the movie title!</mat-error>
+    </mat-form-field>
+    <mat-form-field class="input-text-full-width">
+      <mat-label>Director</mat-label>
+      <label>
+        <input matInput
+               type="text"
+               placeholder="Director"
+               formControlName="director"
+        />
+      </label>
+      <mat-error *ngIf="form.get('director')?.invalid">Please type in the director name!</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genre">
+        <mat-option class="mat-option-color" ngDefaultControl *ngFor="let genre of genres" [value]="genre.value">
+          {{genre.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('genre')?.invalid">Please select a genre!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Year</mat-label>
+      <mat-select formControlName="year">
+        <mat-option class="mat-option-color" ngDefaultControl *ngFor="let year of years" value="{{year}}">
+          {{year}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button class="img-upld-btn" type="button" (click)="filePicker.click()">
+      Upload Image
+    </button>
+    <input type="file" #filePicker (change)="onImageSelected($event)">
+    <div class="poster-preview" *ngIf="posterPreview !== '' && posterPreview && form.get('poster')?.valid">
+      <img [src]="posterPreview" [alt]="form.value.title">
+    </div>
+    <div class="add-btn-div luxury">
+      <button mat-raised-button
+              color="primary"
+              type="submit">Save Movie
+      </button>
+    </div>
+  </form>
+</mat-card>
+

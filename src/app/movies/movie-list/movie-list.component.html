@@ -1,0 +1,55 @@
+<div class="red-line"></div>
+<div class="wrapper">
+  <div class="scroll-horiz">
+    <mat-progress-bar *ngIf="isLoading" color="warn" mode="indeterminate"></mat-progress-bar>
+    <mat-accordion *ngIf="movies.length>0 && !isLoading" multi="true">
+      <mat-expansion-panel *ngFor="let movie of movies | filter: searchText" hideToggle [disabled]="true">
+        <mat-expansion-panel-header [collapsedHeight]="'100%'" [expandedHeight]="'100%'">
+          <div class="movie-poster">
+            <!--            <a [routerLink]="['details', movie.id]">-->
+            <img [src]="movie.posterPath" [alt]="movie.title"
+                 (click)="onPosterClicked(movie.id); getMovieDetails(movie.id)">
+            <!--            </a>-->
+          </div>
+        </mat-expansion-panel-header>
+        <div class="mat-body-1">
+          <div class="tab">Title:</div>
+          {{movie.title}}
+        </div>
+        <hr>
+        <div class="mat-body-1">
+          <div class="tab">Director:</div>
+          {{movie.director}}
+        </div>
+        <hr>
+        <div class="mat-body-1">
+          <div class="tab">Genre:</div>
+          {{movie.genre}}
+        </div>
+        <hr>
+        <div class="mat-body-1">
+          <div class="tab">Year:</div>
+          {{movie.year}}
+        </div>
+        <mat-action-row *ngIf="userIsAuthenticated">
+          <a [routerLink]="['edit', movie.id]">
+            <mat-icon [inline]="true" class="edit-icon">create</mat-icon>
+          </a>
+          <div class="vl"></div>
+          <mat-icon [inline]="true" color="warn" (click)="onDelete(movie.id)">delete</mat-icon>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+<p class="mat-body-1" *ngIf="movies.length<=0 && !isLoading">No movies available!</p>
+
+<section class="video-container">
+  <video autoplay="autoplay" [muted]="'muted'" loop="loop" poster="http://3dealism.com/img/loading_L.jpg"
+         class="background-video">
+    <source
+      src="http://www.3dealism.com/video/bgvideo.mp4">
+  </video>
+</section>
+

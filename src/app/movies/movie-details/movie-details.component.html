@@ -1,0 +1,103 @@
+<mat-dialog-content>
+  <mat-card>
+    <mat-progress-bar *ngIf="isLoading" color="warn" mode="indeterminate"></mat-progress-bar>
+    <div class="movie-poster">
+      <a href="#">
+        <img [src]="movie?.posterPath" [alt]="movie?.title">
+      </a>
+    </div>
+    <div class="row">
+      <mat-label class="movie-label column">Title:
+        <div class="tab column2">{{movie?.title}}</div>
+      </mat-label>
+      <mat-label class="movie-label column">Director:
+        <div class="tab">{{movie?.director}}</div>
+      </mat-label>
+      <mat-label class="movie-label column">Genre:
+        <div class="tab">{{movie?.genre}}</div>
+      </mat-label>
+
+      <mat-label class="movie-label column">Year:
+        <div class="tab">{{movie?.year}}</div>
+      </mat-label>
+    </div>
+
+    <div class="plot">{{this.plot}}</div>
+
+    <div class="rating-area row2">
+      <div class="ratings-label">Ratings:</div>
+      <div class="star-align">
+        <ul class="star-lift">
+          <li *ngFor="let i of arr; let x = index" [style.color]="x > index?'gray':'inherit'" (click)="onClickItem(x)">
+            <mat-icon>star</mat-icon>
+          </li>
+        </ul>
+      </div>
+      <div class="imdb-wrapper">
+        <div class="imdb-ratings-label">IMDB Ratings:</div>
+        <div class="imdb-ratings">{{this.imdbRatings}}</div>
+      </div>
+    </div>
+
+    <mat-action-row *ngIf="userIsAuthenticated">
+      <div class="add-btn-div2 luxury">
+        <button mat-raised-button color="primary" type="submit"
+                (click)="watchTrailer(trailerKey!)">
+          Watch trailer
+        </button>
+      </div>
+      <span fxFlex=""></span>
+      <div class="edit-buttons">
+        <a [routerLink]="['edit', movie?.id]" mat-dialog-close>
+          <mat-icon [inline]="true" class="edit-icon">create</mat-icon>
+        </a>
+        <div class="vl"></div>
+        <mat-icon [inline]="true" class="delete-icon" color="warn" mat-dialog-close (click)="onDelete(movie.id)">delete
+        </mat-icon>
+      </div>
+    </mat-action-row>
+
+
+    <div class="comment-header">
+      <mat-label class="comment-label">Comments:</mat-label>
+    </div>
+    <div *ngFor="let comment of comments">
+      <div *ngIf="movie?.id == comment.movieId">
+        <mat-label class="user-label">
+          <div class="user-bottom-space">{{comment.username}}</div>
+        </mat-label>
+        <div class="input-text-full-width comment-bottom-space">{{comment.content}}</div>
+      </div>
+    </div>
+    <form [formGroup]="formComments" class="add-form" (submit)="onSaveComment()" *ngIf="!isLoading">
+      <mat-label class="form-header">Please fill in the fields to add your comment</mat-label>
+      <mat-form-field class="input-text-full-width space-2-head">
+        <mat-label>Username</mat-label>
+        <label>
+          <input matInput
+                 type="text"
+                 placeholder="Username"
+                 formControlName="username"
+          />
+        </label>
+        <mat-error *ngIf="formComments.get('username')?.invalid">Please type in your username!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="input-text-full-width">
+        <mat-label>Content</mat-label>
+        <label>
+          <textarea matInput class="text-area" placeholder="Content" formControlName="content"></textarea>
+        </label>
+        <mat-error *ngIf="formComments.get('content')?.invalid">Please type in the content name!</mat-error>
+      </mat-form-field>
+
+      <div class="add-btn-div luxury">
+        <button mat-raised-button
+                color="primary"
+                type="submit">Post Comment
+        </button>
+      </div>
+
+    </form>
+
+  </mat-card>
+</mat-dialog-content>
