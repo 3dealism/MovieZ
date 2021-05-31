@@ -44,7 +44,7 @@ export class MovieAddComponent implements OnInit {
     public movieService: MovieService,
     public route: ActivatedRoute) {
 
-    for (let i = 2020; i >= 1900; i--) {
+    for (let i = 2021; i >= 1900; i--) {
       this.years.push(i);
     }
   }
