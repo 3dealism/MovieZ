@@ -4,8 +4,6 @@ import {Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {RatingService} from '../rating/rating.service';
-import {AuthService} from '../auth/auth.service';
 
 // provides the service on the root level, angular creates only one instance of the service
 @Injectable({providedIn: 'root'})
@@ -17,7 +15,7 @@ export class MovieService {
   private searchTextSource = new Subject<string>();
   searchText$ = this.searchTextSource.asObservable();
 
-  constructor(private http: HttpClient, private router: Router, private ratingService: RatingService) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   sendSearchText(filterText: string) {

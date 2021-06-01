@@ -5,8 +5,6 @@ export interface Movie{
   genre: string;
   year: string;
   posterPath: string;
-  // poster: File | string;
-  // ratings: string;
 }
 export interface Comment{
   id: string;

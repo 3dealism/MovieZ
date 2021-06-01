@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 /**
  * @class movieSchema
  * @param {string} title is required
@@ -21,7 +20,6 @@ const movieSchema = mongoose.Schema({
   {
     versionKey: false // You should be aware of the outcome after set to false
   });
-
 
 /**
  *

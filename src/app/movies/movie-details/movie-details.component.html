@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <mat-action-row *ngIf="userIsAuthenticated">
+    <mat-action-row>
       <div class="add-btn-div2 luxury">
         <button mat-raised-button color="primary" type="submit"
                 (click)="watchTrailer(trailerKey!)">
@@ -47,7 +47,7 @@
         </button>
       </div>
       <span fxFlex=""></span>
-      <div class="edit-buttons">
+      <div class="edit-buttons" *ngIf="userIsAuthenticated">
         <a [routerLink]="['edit', movie?.id]" mat-dialog-close>
           <mat-icon [inline]="true" class="edit-icon">create</mat-icon>
         </a>
