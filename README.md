@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server and `nodemon server` for the database. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+docker run --rm -it -p 4201:4200 moviez
+
 ## Production server
 
 Run `npm start` for a proxy prod server. (In case the backend server is not starting automatically per script run `nodemon server`) Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
