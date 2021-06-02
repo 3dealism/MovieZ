@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js | ng serve --proxy-config proxy.config.json",
+    "start:server": "nodemon ./backend/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
