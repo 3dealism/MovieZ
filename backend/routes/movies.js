@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
       console.log('Mimetype is valid!');
       error = null;
     }
-    cb(error, "backend/images");
+    cb(error, "./images");
   },
   filename: (req, file, cb) => {
     const name = file.originalname.toLowerCase().split(' ').join('-');
@@ -96,7 +96,7 @@ router.get('/:id', (req, res) => {
 })
 
 /**
- * Updates a movies contents after they have been manually changed
+ * Updates movie contents after they have been manually changed
  */
 router.put('/:id', checkAuth, multer({storage: storage}).single('poster'), (req, res) => {
   let posterPath = req.body.posterPath;
