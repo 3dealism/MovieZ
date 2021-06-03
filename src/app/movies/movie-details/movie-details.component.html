@@ -69,7 +69,7 @@
         <div class="input-text-full-width comment-bottom-space">{{comment.content}}</div>
       </div>
     </div>
-    <form [formGroup]="formComments" class="add-form" (submit)="onSaveComment()" *ngIf="!isLoading">
+    <form [formGroup]="formComments" class="add-form" (submit)="onSaveComment()" *ngIf="!isLoading && userIsAuthenticated">
       <mat-label class="form-header">Please fill in the fields to add your comment</mat-label>
       <mat-form-field class="input-text-full-width space-2-head">
         <mat-label>Username</mat-label>
